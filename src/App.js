@@ -20,6 +20,12 @@ class App extends Component {
   }
 
   render() {
+    // destructuring state setting values to names we are going to use as props
+    const { monsters, searchField } = this.state;
+    const filteredMonsters = monsters.filter((monster) =>
+      monster.name.toLowerCase().includes(searchField.toLowerCase())
+    );
+
     return (
       <div className='App'>
         <input
@@ -31,7 +37,7 @@ class App extends Component {
             );
           }}
         />
-        <CardList monsters={this.state.monsters}></CardList>
+        <CardList monsters={filteredMonsters}></CardList>
       </div>
     );
   }
