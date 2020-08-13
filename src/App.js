@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { CardList } from './components/card-list/card-list.component';
+import { SearchBox } from './components/search-box/search-box.component';
 
 import './App.css';
 
@@ -19,6 +20,10 @@ class App extends Component {
       .then((users) => this.setState({ monsters: users }));
   }
 
+  onSearchChange = (event) => {
+    this.setState({ searchField: event.target.value });
+  };
+
   render() {
     // destructuring state setting values to names we are going to use as props
     const { monsters, searchField } = this.state;
@@ -28,15 +33,8 @@ class App extends Component {
 
     return (
       <div className='App'>
-        <input
-          type='search'
-          placeholder='search monsters'
-          onChange={(e) => {
-            this.setState({ searchField: e.target.value }, () =>
-              console.log(this.state)
-            );
-          }}
-        />
+        <h1>Monsters Rolodex</h1>
+        <SearchBox onSearchChange={this.onSearchChange} />
         <CardList monsters={filteredMonsters}></CardList>
       </div>
     );
