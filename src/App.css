@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  font-family: 'Indie Flower', cursive;
 }
 
 .App-logo {
@@ -35,4 +36,12 @@
   to {
     transform: rotate(360deg);
   }
+}
+h1 {
+  font-size: 70px;
+}
+
+.search-box {
+  border-radius: 10px;
+  width: 20em;
 }
